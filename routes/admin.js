@@ -8,9 +8,11 @@ router.get('/', function(req,res){
 
     var saludo = 'aver si sale esta practica, que rollo'
 
-    res.render('index',{saludo:saludo})
+    res.render('index',{saludo:saludo})   
+})
 
-    
+router.post('/post',function(req,res){
+    console.log(req.body)
 })
 
 //Al final lo exporta al apps.js

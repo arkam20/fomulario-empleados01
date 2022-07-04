@@ -11,18 +11,22 @@
 </head>
 <body>
 <!--Iniciar el Formulario-->
-<form action="">
-    <div class="form-group col-md-3">
-        <label for="Nombre" class="col-form-label">Nombre</label>
-        <input type="text"  class="form-control" id="nombre_emp" placeholder="Introduce el nombre del empleado">
-    </div>
+<form action="/post" method="post">
     
-    <div class="form-row">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="Nombre" class="col-form-label">Nombre</label>
+            <input type="text"  class="form-control" id="nombre_emp" placeholder="Introduce el nombre del empleado">
+        </div>
+    </div>
+
+    
+    <div class="row">
         <div class="form-group col-md-3">
             <label for="Telefono" class="col-form-label">Teléfono</label>
-            <input type="number" class="form-control" id="telefono_emp" placeholder="Introduce el teléfono">
+            <input type="number" class="form-control" name="telefono_emp" id="telefono_emp" required placeholder="Introduce el teléfono">
         </div>
-        <div class="form-group col-md-3">
+        <div class="col-md-3">
             <label for="sexo" class="col-form-label">Sexo</label>
             <select class="form-control" id="sexo_emp">
                 <option value="M">Masculino</option>
@@ -31,10 +35,21 @@
         </div>
     </div>
 
-    <div class="form-group col-md-3">
-        <label for="nacimiento" class="col-form-label">Fecha de Nacimiento</label>
-        <input type="date" class="form-control" id="fecha_nac">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6">
+                    <label for="nacimiento" class="col-form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fecha_nac">
+                </div>
+            </div>
+
+        </div>
     </div>
+
     <br>
     <div class="form-group col-md-3">
         <button type="submit" class="btn btn-primary">Enviar</button>

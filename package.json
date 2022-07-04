@@ -9,5 +9,23 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "path": "^0.12.7"
-  }
+  },
+  "name": "01-formulario-empleados",
+  "description": "\"# fomulario-empleados01\"",
+  "version": "1.0.0",
+  "main": "apps.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkam20/fomulario-empleados01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arkam20/fomulario-empleados01/issues"
+  },
+  "homepage": "https://github.com/arkam20/fomulario-empleados01#readme"
 }

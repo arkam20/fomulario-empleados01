@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Meta Tags for Bootstrap 5-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Formulario para Registro de Empleados</title>
 </head>
 <body>
-    <div>
-        <h1>Registro de Empleados</h1>
-        <div>
-            <table>
-                <tr>
-                    <td>Nombre</td>
-                    <td></td>
-                </tr>
-                <tr> 
-                    <td> Teléfono </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sexo</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Fecha de Nacimiento</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Boton Submit</td>
-                </tr>
-            </table>
+<!--Iniciar el Formulario-->
+<form action="">
+    <div class="form-group col-md-3">
+        <label for="Nombre" class="col-form-label">Nombre</label>
+        <input type="text"  class="form-control" id="nombre_emp" placeholder="Introduce el nombre del empleado">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="Telefono" class="col-form-label">Teléfono</label>
+            <input type="number" class="form-control" id="telefono_emp" placeholder="Introduce el teléfono">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="sexo" class="col-form-label">Sexo</label>
+            <select class="form-control" id="sexo_emp">
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
         </div>
     </div>
+
+    <div class="form-group col-md-3">
+        <label for="nacimiento" class="col-form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fecha_nac">
+    </div>
+    <br>
+    <div class="form-group col-md-3">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+       
+</form>
 </body>
 </html>

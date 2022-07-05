@@ -4,9 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!------------ Bootstrap 5 -------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
+    
+
+    <!-- AGregando iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Tabloide de Colores </title>
 </head>
 <body>
-    <h1>Tabloide</h1>
+   
+    
+    <div class="row mx-auto mt-3" style="width: 200px;">
+        <h1>Tabloide</h1>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-2" style="background-color:green; text-align: center; color:white">
+            <p>Sidebar</p>
+        </div>
+        <div class="col-md-6" style="background-color: aqua; text-align: center;">
+            <p>Header</p>
+            <div class="row">
+                <div class="col" style="background-color: burlywood;">
+                    <p class="p-5">row</p>
+                </div>
+            </div>
+            <div class="row" style="color:white;">
+                <div class="col-md-6 p-5" style="background-color: cornflowerblue; text-align: center;">
+                    columna 1 / 50%
+                </div>
+                <div class="col-md-6 p-5" style="background-color:blueviolet; text-align: center;">
+                    columna 2 / 50%
+                </div>
+            </div>
+            <div class="row" style="background-color: black; color:red">
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">Card 1</p>
+                            <p class="card-text">Card Text 1</p>
+                            <a href="#" class="btn btn-primary" role="button"><i class="fa fa-folder"></i> Noticias</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">Card 2 </p>
+                            <p class="card-text">Card Text 3 </p>
+                            <a href="#" class="btn btn-success" role="button"><i class="fa fa-print"></i> Imprimir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">Card 3</p>
+                            <p class="card-text">Card text 3</p>
+                            <a href="#" class="btn btn-danger" role="button"><i class="fa fa-trash"></i> Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3" style="background-color:black;"></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    
 </body>
 </html>

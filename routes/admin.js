@@ -15,5 +15,9 @@ router.post('/post',function(req,res){
     console.log(req.body)
 })
 
+router.get('/tabloide', function(req,res){
+    res.render('tabloide')
+})
+
 //Al final lo exporta al apps.js
 module.exports = router;

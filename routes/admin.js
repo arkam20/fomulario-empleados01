@@ -8,7 +8,11 @@ router.get('/', function(req,res){
 
     var saludo = 'aver si sale esta practica, que rollo'
 
-    res.render('index',{saludo:saludo})   
+    res.render('login',{saludo:saludo})   
+})
+
+router.get('/index',function(req,res){
+    res.render('index')
 })
 
 router.post('/post',function(req,res){

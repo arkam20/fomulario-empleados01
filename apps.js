@@ -3,6 +3,10 @@ var express = require('express')
 var path = require('path')
 var logger = require('morgan')
 
+
+
+
+
 // Se manda llamar la paqueteria para conexion a BD
 var mysql = require('mysql')
 
@@ -54,5 +58,16 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', adminRouter);
+
+
+//Se establecen sesiones
+
+var session = require('express-session')
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 module.exports = app;

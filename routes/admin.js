@@ -13,6 +13,17 @@ router.get('/', async function(req,res){
     var saludo = 'aver si sale esta practica, que rollo'
 
     res.render('ajax',{saludo:saludo})   
+}) 
+
+router.get('/login',function(req,res){
+    res.render('login')
+})
+
+router.post('/qryLogin', async function(req,res){
+
+    let consulta = await mySqlQuery('select * from login')
+    
+    res.json(consulta)
 })
 
 router.get('/index',function(req,res){

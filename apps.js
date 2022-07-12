@@ -3,10 +3,6 @@ var express = require('express')
 var path = require('path')
 var logger = require('morgan')
 
-
-
-
-
 // Se manda llamar la paqueteria para conexion a BD
 //var mysql = require('mysql')
 

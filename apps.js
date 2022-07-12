@@ -2,6 +2,8 @@ var createError = require('http-errors')
 var express = require('express')
 var path = require('path')
 var logger = require('morgan')
+var session = require('express-session')
+var cookieParser = require('cookie-parser')
 
 // Se manda llamar la paqueteria para conexion a BD
 //var mysql = require('mysql')
@@ -45,6 +47,15 @@ app.set('views', path.join(__dirname, 'views'))
 //Se establece el motor de vistas
 app.set('view engine','ejs');
 
+//establecer que se se va a usar sesiones con cookies
+app.use(session({
+    secret: 'keyboard_cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie:{secure:false},
+    name:'valida'
+}))
+
 //
 app.use(logger('dev'));
 app.use(express.json());
@@ -58,12 +69,10 @@ app.use('/', adminRouter);
 
 //Se establecen sesiones
 
-var session = require('express-session')
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true
-}))
+
+
+
+app.use(cookieParser());
 
 module.exports = app;

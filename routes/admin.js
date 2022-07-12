@@ -1,18 +1,26 @@
 //Se declara la ruta
 var express = require ('express');
 var router = express.Router();
+var _=require('lodash')
 
 var mariadb = require('mariadb')
 
 
 router.get('/', async function(req,res){
+    
+    
+    console.log(req.session)
+
+
+    if (req.session == undefined){
+        res.redirect('/login')
+    } else {
+        let saludo ='boton de ajax'
+        res.render('ajax',{user:req.session.user});
+    }
     //res.send('prueba')
-    let consulta=await mySqlQuery(`select * from login`)
-    console.log(consulta)
-
-    var saludo = 'aver si sale esta practica, que rollo'
-
-    res.render('ajax',{saludo:saludo})   
+   // let consulta=await mySqlQuery(`select * from login`)
+    //console.log(consulta)
 }) 
 
 router.get('/login',function(req,res){
@@ -21,9 +29,23 @@ router.get('/login',function(req,res){
 
 router.post('/qryLogin', async function(req,res){
 
-    let consulta = await mySqlQuery('select * from login')
+    let consulta = await mySqlQuery(`select * from login where username="${req.body.username}" and password="${req.body.password}"`)
+
+    console.log(_.size(consulta));
+    console.log(req.session);
+
+    if(_.size(consulta) == 1) {
+                
+        req.session.user = consulta[0]['username']
+        req.session.nombre = consulta[0]['name']
+        req.session.rol = consulta[0]['role']
+
+        res.redirect('/');
+    }else { 
+
+      }
     
-    res.json(consulta)
+
 })
 
 router.get('/index',function(req,res){
@@ -34,7 +56,7 @@ router.post('/post',function(req,res){
     console.log(req.body)
 })
 
-router.get('/tabloide', function(req,res){
+router.post('/tabloide', function(req,res){
     res.render('tabloide')
 })
 

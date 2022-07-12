@@ -40,27 +40,37 @@ $(document).ready(function(){
             type: 'POST',
             url: '/qryLogin',
             data: {
-                nombre: 'Prueba'
+                username: username.value,
+                password: user_pass.value
             },
             success: function(response) {
+                console.log(response);
 
                 //Se crea bandera para verificar si fue encontrado
                 let encontrado = false
 
                 //Se recorre el objeto response para validar las credenciales
-                for (let i in response){
+              /*  for (let i in response){
                     if(response[i]["username"] == username.value && response[i]["password"] == user_pass.value){                       
-                        console.log('credenciales si coinciden');
                         encontrado = true;
                         loginMensaje.innerText = '';
+                        autorizacion();
                     }
                 } 
                 if (!encontrado) {
                     loginMensaje.innerText = 'Credenciales no coinciden';
-                }
+                } */
                 
             }
         })
     })
 })
+
+function autorizacion(req,res) {
+
+    res.render('/tabloide');
+    
+}
+
+
 

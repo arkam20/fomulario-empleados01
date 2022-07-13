@@ -8,7 +8,7 @@ var mariadb = require('mariadb')
 
 router.get('/', async function(req,res){
     
-    
+        console.log('/index')
     console.log(req.session)
 
 
@@ -23,26 +23,36 @@ router.get('/', async function(req,res){
     //console.log(consulta)
 }) 
 
-router.get('/login',function(req,res){
+router.get('/login', (req,res) =>{
+    console.log('login antes de delete req')
+    delete req.session.destroy();
+    console.log(req.session)
+    console.log('despues de delete req')
     res.render('login')
-})
+});
 
 router.post('/qryLogin', async function(req,res){
 
+    //se borran la cookie de sesion
+
+
+    //Se crea la consulta
     let consulta = await mySqlQuery(`select * from login where username="${req.body.username}" and password="${req.body.password}"`)
 
+    console.log('QqryLogin')
     console.log(_.size(consulta));
     console.log(req.session);
 
-    if(_.size(consulta) == 1) {
-                
+    //Si el valor es 1 entonces la consulta regreso datos
+    if(_.size(consulta) == 1) {               
         req.session.user = consulta[0]['username']
         req.session.nombre = consulta[0]['name']
         req.session.rol = consulta[0]['role']
 
+        //Enviar al raiz
         res.redirect('/');
     }else { 
-
+                
       }
     
 

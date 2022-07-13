@@ -68,11 +68,6 @@ app.use('/', adminRouter);
 
 
 //Se establecen sesiones
-
-
-
-
-
 app.use(cookieParser());
 
 module.exports = app;

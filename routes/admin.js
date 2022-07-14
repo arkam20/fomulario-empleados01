@@ -10,17 +10,18 @@ router.get('/', async function(req,res){
     
         console.log('/index')
     console.log(req.session)
+    console.log('usuario: '+ req.session.user);
 
 
-    if (req.session == undefined){
+    if (req.session.user == undefined){
         res.redirect('/login')
-    } else {
-        let saludo ='boton de ajax'
+    } else if(req.session.user != "" && req.session.rol =='regular'){
+        res.render('index');
+    } else if(req.session.user!="" && req.session.rol=='admin') {
         res.render('ajax',{user:req.session.user});
+    } else {
+        res.render('login')
     }
-    //res.send('prueba')
-   // let consulta=await mySqlQuery(`select * from login`)
-    //console.log(consulta)
 }) 
 
 router.get('/login', (req,res) =>{
@@ -34,6 +35,7 @@ router.get('/login', (req,res) =>{
 router.post('/qryLogin', async function(req,res){
 
     //se borran la cookie de sesion
+    console.log(req.body);
 
 
     //Se crea la consulta

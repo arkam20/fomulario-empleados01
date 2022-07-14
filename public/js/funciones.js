@@ -34,7 +34,7 @@ $(document).ready(function(){
     let username = document.getElementById('username');
     let user_pass = document.getElementById('user_pass');
 
-    loginBtn.addEventListener('click',function(){
+   /* loginBtn.addEventListener('click',function(){
         
         $.ajax({
             type: 'POST',
@@ -44,7 +44,7 @@ $(document).ready(function(){
                 password: user_pass.value
             },
             success: function(response) {
-                console.log(response);
+                //console.log(response);
 
                 //Se crea bandera para verificar si fue encontrado
                 let encontrado = false
@@ -59,11 +59,11 @@ $(document).ready(function(){
                 } 
                 if (!encontrado) {
                     loginMensaje.innerText = 'Credenciales no coinciden';
-                } */
+                } 
                 
-            }
-        })
-    })
+            } 
+        }) 
+    }) */
 })
 
 function autorizacion(req,res) {

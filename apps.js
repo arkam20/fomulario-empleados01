@@ -66,7 +66,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', adminRouter);
 
-
 //Se establecen sesiones
 app.use(cookieParser());
 

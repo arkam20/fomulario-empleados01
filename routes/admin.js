@@ -6,9 +6,12 @@ var _=require('lodash')
 var mariadb = require('mariadb')
 
 
+var colors = require('colors');
+
+
 router.get('/', async function(req,res){
     
-        console.log('/index')
+    console.log('/index')
     console.log(req.session)
     console.log('usuario: '+ req.session.user);
 
@@ -19,7 +22,8 @@ router.get('/', async function(req,res){
         res.render('index');
     } else if(req.session.user!="" && req.session.rol=='admin') {
         res.render('ajax',{user:req.session.user});
-    } else {
+    } 
+    else {
         res.render('login')
     }
 }) 
@@ -59,6 +63,39 @@ router.post('/qryLogin', async function(req,res){
     
 
 })
+
+router.get('/reg_user',function(req,res){
+    
+    console.log('reg_user'.bgYellow);
+    console.log(req.session.user);
+    console.log(req.session.rol);
+
+    if (req.session.user == undefined){
+        res.redirect('/login')
+    } else if(req.session.user != "" && req.session.rol =='admin'){
+        res.render('index');
+    }
+    else {
+        res.render('login')
+    }
+})
+
+
+router.get('/all_users',function(req,res){
+    
+    if (req.session.user == undefined){
+        res.redirect('/login')
+    } else if(req.session.user != "" && req.session.rol =='admin'){
+        //realizar consulta regresar el response a la vista
+        res.render('lt_usuarios');
+    }
+    else {
+        res.render('login')
+    }
+    
+  
+});
+
 
 router.get('/index',function(req,res){
     res.render('index')

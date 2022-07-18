@@ -10,5 +10,12 @@
     <!--  -->
     <%- include('navbar') %>
     <h1>Listado de usuarios</h1>
+    <br>
+    <ul>
+        <% usuarios.forEach(function(usuario) { %>
+           <li> Nombre:<%= usuario.name %> Rol:<%= usuario.role %></li>
+        <% }); %> 
+       </ul>
+              
 </body>
 </html>

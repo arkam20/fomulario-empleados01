@@ -81,13 +81,18 @@ router.get('/reg_user',function(req,res){
 })
 
 
-router.get('/all_users',function(req,res){
+router.get('/all_users',async function(req,res){
     
     if (req.session.user == undefined){
         res.redirect('/login')
     } else if(req.session.user != "" && req.session.rol =='admin'){
         //realizar consulta regresar el response a la vista
-        res.render('lt_usuarios');
+        console.log("listado de usuarios".bgWhite);
+        let usuarios = await mySqlQuery(`select * from login`)
+        console.log(usuarios);
+        
+        //Se pasa el resultado del Query
+        res.render('lt_usuarios',{usuarios});
     }
     else {
         res.render('login')
